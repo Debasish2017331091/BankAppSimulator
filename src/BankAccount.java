@@ -5,20 +5,24 @@ public class BankAccount {
     private int number;
     private LocalDate creationDate;
     private double balance;
-    private int type;
+    private AccountType type;
     private static int account_number=20240001;
     
-    BankAccount(String name, int type ) {
-    	if( type<1 || type>3 ) {
-    		System.out.println("Given Account Type is not Valid!");
-    		return;
-    	}
+    public enum AccountType {
+        CURRENT, SAVING, SALARY
+    }
+    
+    BankAccount(String name, AccountType type, int amount ) {
+		if (type == null) {
+	        System.out.println("Given Account Type is not Valid!");
+	        return;
+	    }
     	this.name = name;
-    	this.number = account_number;
-    	account_number +=1 ;
-    	this.creationDate = LocalDate.now();
-    	this.balance = 1000;
     	this.type = type;
+    	this.balance = amount;
+    	this.number = account_number;
+    	this.creationDate = LocalDate.now();
+    	account_number +=1 ;
     	System.out.println("Succesfuly Created the account");
     }
     
@@ -34,14 +38,8 @@ public class BankAccount {
 		return this.balance;
 	}
     
-    public String getType() {
-		if(this.type==1) {
-			return "current account";
-		}else if(this.type==2) {
-			return "saving account";
-		}else {
-			return "salary account";
-		}
+    public AccountType getType() {
+		return this.type;
 	}
     
     public LocalDate getCreationDate() {
@@ -55,23 +53,25 @@ public class BankAccount {
     public void deposit(double amount){
 		this.balance += amount;
 		System.out.println("Deposit Successful");
-		return;
 	}
     
     public void withdraw(double amount){
-    	if(this.balance<amount) {
+    	if(this.balance - amount < 0) {
     		System.out.println("Unsuccessfull, not enough balance!");
+    		return;
+    	}
+    	if(this.balance < 1000) {
+    		System.out.println("Your current balance is less than 1000, you must have minimum balance of 1000");
     		return;
     	}
 		this.balance -= amount;
 		System.out.println("Withdraw Successful");
-		return;
 	}
     
     public void showAccount() {
     	System.out.println("Account Number: "+this.getNumber()+
-    			" Account Name: "+this.getName()+" Account Type: "+this.getType()+
-    			" Balance: "+this.getBalance()+" Created at: "+this.getCreationDate());
+    			", Account Name: '"+this.getName()+"', Account Type: "+this.getType()+
+    			", Balance: "+this.getBalance()+", Created at: "+this.getCreationDate());
     }
     
 }

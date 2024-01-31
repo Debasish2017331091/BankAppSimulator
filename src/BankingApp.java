@@ -6,7 +6,7 @@ public class BankingApp {
 		System.out.println("Enter any number from 1-8 to interact");
         System.out.println("1 (create account), 2 (display all accounts), "
         		+ "3 (update an account), 4 (delete an account), 5 (deposit), "
-        		+ "6 (withdraw), 7 (searching an account, 8 (Exit)");
+        		+ "6 (withdraw), 7 (searching an account), 8 (Exit)");
         System.out.println("Enter your choice: ");
 	}
 
@@ -21,12 +21,21 @@ public class BankingApp {
 
             switch (choice) {
                 case 1:
-                	System.out.println("Creating a new account");
+                	System.out.println("Creating Account");
                     System.out.println("Enter account name: ");
                     String name = scanner.next();
-                    System.out.println("Enter account type (1 for current, 2 for saving, 3 for salary): ");
-                    int type = scanner.nextInt();
-                    bank.createAccount(name, type);
+                    System.out.println("Enter account type ('CURRENT' for current, 'SAVING' for saving, 'SALARY' for salary without quotation): ");
+                    String typeString = scanner.next();
+                    BankAccount.AccountType type;
+                    try {
+                        type = BankAccount.AccountType.valueOf(typeString.toUpperCase());
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Invalid account type. Try again!");
+                        break;
+                    }
+                    System.out.println("Enter initial deposit ( Minimum 1000 ): ");
+                    int amount = scanner.nextInt();
+                    bank.createAccount(name, type, amount);
                     break;
                     
                 case 2:
@@ -35,7 +44,7 @@ public class BankingApp {
                     break;
                     
                 case 3:
-                	System.out.println("Updating an account");
+                	System.out.println("Updating Account");
                     System.out.println("Enter account number: ");
                     int accountNumber = scanner.nextInt();
                     System.out.println("Enter new account name: ");
@@ -44,14 +53,14 @@ public class BankingApp {
                     break;
                     
                 case 4:
-                	System.out.println("Deleting an account");
+                	System.out.println("Delete Account");
                 	System.out.println("Enter account number: ");
                     int accountNumberDelete = scanner.nextInt();
                     bank.deleteAccount(accountNumberDelete);
                     break;
                     
                 case 5:
-                	System.out.println("Depositing an amount into your account");
+                	System.out.println("Deposit Amount");
                     System.out.println("Enter account number: ");
                     int accountNumberDeposit = scanner.nextInt();
                     System.out.println("Enter deposit amount: ");
@@ -60,7 +69,7 @@ public class BankingApp {
                     break;
                     
                 case 6:
-                	System.out.println("Withdrawing an amount from your account");
+                	System.out.println("Withdraw amount from Account");
                     System.out.println("Enter account number: ");
                     int accountNumberWithdraw = scanner.nextInt();
                     System.out.println("Enter withdrawal amount: ");
@@ -68,8 +77,8 @@ public class BankingApp {
                     bank.withdrawAmount(accountNumberWithdraw, withdrawalAmount);
                     break;
                 case 7:
-                	System.out.println("Searching for an account");
-                    System.out.println("Enter the account number: ");
+                	System.out.println("Searching Account");
+                    System.out.println("Enter a Account Number: ");
                     int accountNumberSearch = scanner.nextInt();
                     bank.searchAccount(accountNumberSearch);
                     break;

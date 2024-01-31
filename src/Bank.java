@@ -8,10 +8,14 @@ public class Bank {
     }
     
     // create account
-    public void createAccount(String name, int type) {
-        BankAccount newAccount = new BankAccount(name, type);
+    public void createAccount(String name, BankAccount.AccountType type, int amount) {
+    	if(amount<1000) {
+    		System.out.println("Sorry, minimum deposit must be 1000. Try again!");
+    	}
+        BankAccount newAccount = new BankAccount(name, type, amount);
         if (newAccount.getNumber() != 0) {
             accounts.add(newAccount);
+            newAccount.showAccount();
         } else {
             System.out.println("Account creation failed. Invalid account type.");
         }
@@ -23,6 +27,7 @@ public class Bank {
              if (account.getNumber() == accountNumber) {
                  account.setName(name);
                  System.out.println("Account name updated successfully!");
+                 account.showAccount();
                  return;
              }
          }
@@ -61,6 +66,10 @@ public class Bank {
     
     // deposit
     public void depositAmount(int accountNumber, double amount) {
+    	if(amount<=0) {
+    		System.out.println("Invalid deposit amount.");
+    		return;
+    	}
         for (BankAccount account : accounts) {
             if (account.getNumber() == accountNumber) {
                 account.deposit(amount);
@@ -72,6 +81,10 @@ public class Bank {
     
     // withdraw
     public void withdrawAmount(int accountNumber, double amount) {
+    	if(amount<=0) {
+    		System.out.println("Invalid withdraw amount.");
+    		return;
+    	}
         for (BankAccount account : accounts) {
             if (account.getNumber() == accountNumber) {
                 account.withdraw(amount);
