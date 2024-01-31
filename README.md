@@ -58,3 +58,32 @@ Users can exit the application, stopping further execution.
 1. Upon starting the application, users will be presented with a menu displaying options from 1 to 8.
 2. Enter the desired option number to perform the corresponding operation.
 3. Follow the prompts to provide necessary information for each operation.
+
+```java
+// Sample Interaction in console
+
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: 
+1
+Creating a new account
+Enter account name: 
+Sukanto
+Enter account type ('CURRENT' for current, 'SAVING' for saving, 'SALARY' for salary without quotation): 
+current
+Enter initial deposit ( Minimum 1000 ): 
+1500
+Successfully Created the account
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: 
+2
+Displaying all accounts
+Account Number: 20240001, Account Name: 'Sukanto', Account Type: CURRENT, Balance: 1500.0, Created at: 2024-01-31
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: 
+3
+Updating an account
+Enter account number: 
+
