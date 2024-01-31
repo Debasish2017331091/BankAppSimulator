@@ -64,26 +64,74 @@ Users can exit the application, stopping further execution.
 
 Enter any number from 1-8 to interact
 1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
-Enter your choice: 
+Enter your choice: )
 1
-Creating a new account
+Creating Account
 Enter account name: 
 Sukanto
 Enter account type ('CURRENT' for current, 'SAVING' for saving, 'SALARY' for salary without quotation): 
-current
+Current
 Enter initial deposit ( Minimum 1000 ): 
 1500
-Successfully Created the account
+Succesfuly Created the account
+Account Number: 20240001, Account Name: 'Sukanto', Account Type: CURRENT, Balance: 1500.0, Created at: 2024-01-31
 Enter any number from 1-8 to interact
 1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
-Enter your choice: 
+Enter your choice: )
 2
 Displaying all accounts
 Account Number: 20240001, Account Name: 'Sukanto', Account Type: CURRENT, Balance: 1500.0, Created at: 2024-01-31
 Enter any number from 1-8 to interact
 1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
-Enter your choice: 
+Enter your choice: )
 3
-Updating an account
+Updating Account
 Enter account number: 
+20240001
+Enter new account name: 
+Debasish
+Account name updated successfully!
+Account Number: 20240001, Account Name: 'Debasish', Account Type: CURRENT, Balance: 1500.0, Created at: 2024-01-31
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: )
+5
+Deposit Amount
+Enter account number: 
+20240001
+Enter deposit amount: 
+2500
+Deposit Successful
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: )
+6
+Withdraw amount from Account
+Enter account number: 
+20240001
+Enter withdrawal amount: 
+2000
+Withdraw Successful
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: )
+7
+Searching Account
+Enter a Account Number: 
+20240001
+Account Number: 20240001, Account Name: 'Debasish', Account Type: CURRENT, Balance: 2000.0, Created at: 2024-01-31
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: )
+4
+Delete Account
+Enter account number: 
+20240001
+Account deleted successfully!
+Enter any number from 1-8 to interact
+1 (create account), 2 (display all accounts), 3 (update an account), 4 (delete an account), 5 (deposit), 6 (withdraw), 7 (searching an account, 8 (Exit)
+Enter your choice: )
+8
+Exiting ....
+App closed
 
